@@ -1,7 +1,20 @@
 <h1>Pictures</h1>
 <%= link_to("New Picture", "/pictures/new") %>
 
-<% @pictures.each do |picture| %>
-  <p><%= picture.title %>, <%= picture.artist %></p>
-  <%= link_to(image_tag(picture.url), "/pictures/#{picture.id}") %>
-<% end %>
+
+
+<h1>Most recent pictures</h1>
+<ul>
+  <% @most_recent_pictures.each do |picture| %>
+    <li><%= picture.title %></li>
+  <% end %>
+</ul>
+
+
+<h1> There are <%= @older_than_a_month.count %> pictures from over a month ago. </h1>
+
+<ul>
+  <% @older_than_a_month.each do |picture| %>
+    <li><%= picture.title %></li>
+  <% end %>
+</ul>
