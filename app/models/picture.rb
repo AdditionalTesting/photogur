@@ -12,5 +12,12 @@ class Picture < ActiveRecord::Base
    Picture.where("created_at < ?", time)
  end
 
+ def self.pictures_created_in_year(year)
+   dt = DateTime.new(year)
+   start_date = dt.beginning_of_year
+   end_date = dt.end_of_year
+   Picture.where("created_at >= ? and created_at <= ?", start_date, end_date)
+ end
+
 
 end
