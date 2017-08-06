@@ -1,4 +1,3 @@
-<%= link_to("New User", "/users/new") %>
 
 <h1>Pictures</h1>
 <%= link_to("New Picture", "/pictures/new") %>
@@ -8,7 +7,7 @@
 <h1>Most recent pictures</h1>
 <ul>
   <% @most_recent_pictures.each do |picture| %>
-    <li><%= picture.title %></li>
+    <li><%= picture.title %>  <%= link_to(image_tag(picture.url), "/pictures/#{picture.id}") %></li>
   <% end %>
 </ul>
 
