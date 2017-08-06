@@ -8,7 +8,7 @@ class SessionsController < ApplicationController
     user = User.find_by(email: params[:email])
     if user && user.authenticate(params[:password])
       session[:user_id]
-      redirect_to products_url, notice: "Logged in!"
+      redirect_to pictures_url, notice: "Logged in!"
     else
     render "new"
   end
